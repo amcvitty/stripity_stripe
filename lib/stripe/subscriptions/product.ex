@@ -74,6 +74,7 @@ defmodule Stripe.Product do
                  optional(:attributes) => list,
                  :name => String.t(),
                  :type => String.t(),
+                 optional(:active) => boolean,
                  optional(:metadata) => Stripe.Types.metadata(),
                  optional(:statement_descriptor) => String.t(),
                  optional(:unit_label) => String.t()
@@ -108,6 +109,7 @@ defmodule Stripe.Product do
                %{
                  optional(:attributes) => list,
                  optional(:name) => String.t(),
+                 optional(:active) => boolean,
                  optional(:metadata) => Stripe.Types.metadata(),
                  optional(:statement_descriptor) => String.t()
                }

@@ -63,12 +63,17 @@ defmodule Stripe.PaymentMethod do
   Create a payment method.
   """
   @spec create(params, Stripe.options()) :: {:ok, t} | {:error, Stripe.Error.t()}
-        when params: %{
-               :type => String.t(),
-               optional(:billing_details) => billing_details(),
-               optional(:card) => card(),
-               optional(:metadata) => Stripe.Types.metadata()
-             }
+        when params:
+               %{
+                 :type => String.t(),
+                 optional(:billing_details) => billing_details(),
+                 optional(:card) => card(),
+                 optional(:metadata) => Stripe.Types.metadata()
+               }
+               | %{
+                   :customer => String.t(),
+                   :payment_method => String.t()
+                 }
   def create(%{} = params, opts \\ []) do
     new_request(opts)
     |> put_endpoint(plural_endpoint())

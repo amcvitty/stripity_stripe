@@ -32,15 +32,13 @@ defmodule Stripe.SubscriptionItem.Usage do
   @doc """
   Creates a usage record for a specified subscription item id and date, and fills it with a quantity.
   """
-  def create(id, params, opts \\ [])
-
   @spec create(Stripe.id(), params, Stripe.options()) :: {:ok, t} | {:error, Stripe.Error.t()}
         when params: %{
                :quantity => float | pos_integer | 0,
                :timestamp => Stripe.timestamp() | non_neg_integer,
                optional(:action) => String.t()
              }
-  def create(id, params, opts) do
+  def create(id, params, opts \\ []) do
     new_request(opts)
     |> put_endpoint("#{@plural_endpoint}/#{id}/usage_records")
     |> put_method(:post)

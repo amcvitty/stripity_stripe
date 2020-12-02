@@ -85,7 +85,7 @@ defmodule Stripe.SubscriptionItem do
                optional(:prorate) => boolean,
                optional(:proration_date) => Stripe.timestamp(),
                optional(:proration_behavior) => String.t(),
-               optional(:quantity) => float,
+               optional(:quantity) => non_neg_integer(),
                optional(:tax_rates) => list(String.t())
              }
   def update(id, params, opts \\ []) do

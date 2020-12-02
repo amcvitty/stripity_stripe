@@ -84,6 +84,7 @@ defmodule Stripe.SubscriptionItem do
                optional(:price) => Stripe.id() | Stripe.Price.t(),
                optional(:prorate) => boolean,
                optional(:proration_date) => Stripe.timestamp(),
+               optional(:proration_behavior) => String.t(),
                optional(:quantity) => float,
                optional(:tax_rates) => list(String.t())
              }

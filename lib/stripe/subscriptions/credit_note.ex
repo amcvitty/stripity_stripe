@@ -202,6 +202,7 @@ defmodule Stripe.CreditNote do
                  optional(:ending_before) => t | Stripe.id(),
                  optional(:limit) => 1..100,
                  optional(:invoice) => Stripe.id(),
+                 optional(:customer) => Stripe.id(),
                  optional(:starting_after) => t | Stripe.id()
                }
                | %{}
